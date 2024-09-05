@@ -20,17 +20,17 @@ DB_USERNAME=root
 DB_PASSWORD=
 
 -	Crear tablas para la base de datos:
-I.	Entidad propiedad: php artisan make:migration create_propiedad_table.
-II.	Entidad persona: php artisan make:migration create_persona_table.
-III.	Entidad Solicitud visita: php artisan make:migration create_solicitud_visita_table.
+I.	**Entidad propiedad:** php artisan make:migration create_propiedad_table.
+II.	**Entidad persona:** php artisan make:migration create_persona_table.
+III.	**Entidad Solicitud visita:** php artisan make:migration create_solicitud_visita_table.
 IV.	Abrimos los archivos e ingresamos la información de los campos para cada tabla.
 V.	Procedemos a generar la migración: php artisan migrate.
 VI.	Revisamos que se haya cargado todo en la base de datos de PHPmyAdmin.
 
 -	Crear modelo:
-I.	Propiedad: php artisan make:model Propiedad.
-II.	Persona: php artisan make:model Persona.
-III.	Solicitud Visita: php artisan make:model SolicitudVisita.
+I.	**Propiedad:** php artisan make:model Propiedad.
+II.**Persona:** php artisan make:model Persona.
+III.	**Solicitud Visita:** php artisan make:model SolicitudVisita.
 IV.	Realizamos el registro de los campos y llamados a los otros modelos (en el caso de la solicitud visita).
 
 -	Crear controladores:
