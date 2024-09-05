@@ -1,66 +1,62 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Realización del proyecto
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+	Descargar aplicaciones necesarias (Xampp, composer, 7zip, vscode).
 
-## About Laravel
+	Crear proyecto laravel:
+I.	Luego de realizar las instalaciones se debe abrir el terminal (comando cmd).
+II.	Ingresamos al escritorio: cd Desktop y utilizamos el siguiente comando para crear el proyecto: laravel new laravel-real-estate-api-app.
+III.	Realizamos la configuración del proyecto.
+IV.	Ejecutamos el servidor para poder revisar el número de puerto: php artisan serve (localhost:8000).
+V.	Procederemos a instalar el api en nuestro proyecto: php artisan install:api.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+	Crear base de datos en PHPmyAdmin de Xampp:
+I.	Activamos apache y mysql en Xampp y procedemos a crear una base de datos a la cual llamaremos laravelapidb.
+II.	Procedemos a dejar la siguiente información (líneas 23 a 28):
+	DB_CONNECTION=mysql
+	DB_HOST=127.0.0.1
+	DB_PORT=3306
+	DB_DATABASE=laravelapidb
+	DB_USERNAME=root
+	DB_PASSWORD=
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+	Crear tablas para la base de datos:
+I.	Entidad propiedad: php artisan make:migration create_propiedad_table.
+II.	Entidad persona: php artisan make:migration create_persona_table.
+III.	Entidad Solicitud visita: php artisan make:migration create_solicitud_visita_table.
+IV.	Abrimos los archivos e ingresamos la información de los campos para cada tabla.
+V.	Procedemos a generar la migración: php artisan migrate.
+VI.	Revisamos que se haya cargado todo en la base de datos de PHPmyAdmin.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+	Crear modelo:
+I.	Propiedad: php artisan make:model Propiedad.
+II.	Persona: php artisan make:model Persona.
+III.	Solicitud Visita: php artisan make:model SolicitudVisita.
+IV.	Realizamos el registro de los campos y llamados a los otros modelos (en el caso de la solicitud visita).
 
-## Learning Laravel
+	Crear controladores:
+I.	Propiedad: php artisan make:controller propiedadController
+II.	Persona: php artisan make:controller persona Controller
+III.	Solicitud Visita: php artisan make:controller  solicitudVisitaController
+IV.	Realizamos dentro de cada uno el CRUD, creando las siguientes funciones:
+a.	index: lista las propiedades, personas y visitas.
+b.	create: para mostrar formularios de creación para cada entidad.
+c.	store: guardar la información que se ingresa en formularios.
+d.	edit: para mostrar formularios de actualización para la entidad seleccionada.
+e.	update: actualizar/modificar información de la entidad seleccionada.
+f.	destroyer: elimina la propiedad, persona y visita que se seleccione.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+	Crear rutas:
+1.	Api: Crear la ruta para el CRUD de propiedades, personas y solicitudes.
+2.	Web: Crear rutas para la visualización web de los CRUD.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+	Abrir Xampp y activar Apache y MySQL.
+	Crear la base de datos laravelapidb en PHPmyAdmin ingresando en http://localhost/phpmyadmin/.
+	Descargar el proyecto de preferencia mantener el proyecto es el escritorio/Desktop y abrirlo en vscode.
+	Utilizando control+ñ podrá abrir el terminal.
+	En el terminal debe ingresar al proyecto: cd Desktop/laravel-real-state-api-app
+	Realizar el migrate del proyecto utilizando php artisan migrate.
+	Iniciar servidor utilizando php artisan serve.
+	Ingrese a través de google Chrome a http://localhost:8000/propiedades.
+	Ahora puede Navegar y realizar pruebas.
