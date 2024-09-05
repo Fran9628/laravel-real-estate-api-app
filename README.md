@@ -3,21 +3,21 @@
 -	Descargar aplicaciones necesarias (Xampp, composer, 7zip, vscode).
 
 -	Crear proyecto laravel:
-I.	Luego de realizar las instalaciones se debe abrir el terminal (comando cmd).
-II.	Ingresamos al escritorio: cd Desktop y utilizamos el siguiente comando para crear el proyecto: laravel new laravel-real-estate-api-app.
-III.	Realizamos la configuración del proyecto.
-IV.	Ejecutamos el servidor para poder revisar el número de puerto: php artisan serve (localhost:8000).
-V.	Procederemos a instalar el api en nuestro proyecto: php artisan install:api.
+Luego de realizar las instalaciones se debe abrir el terminal (comando cmd).
+Ingresamos al escritorio: cd Desktop y utilizamos el siguiente comando para crear el proyecto: laravel new laravel-real-estate-api-app.
+Realizamos la configuración del proyecto.
+Ejecutamos el servidor para poder revisar el número de puerto: php artisan serve (localhost:8000).
+Procederemos a instalar el api en nuestro proyecto: php artisan install:api.
 
 -	Crear base de datos en PHPmyAdmin de Xampp:
-I.	Activamos apache y mysql en Xampp y procedemos a crear una base de datos a la cual llamaremos laravelapidb.
-II.	Procedemos a dejar la siguiente información (líneas 23 a 28):
-	DB_CONNECTION=mysql
-	DB_HOST=127.0.0.1
-	DB_PORT=3306
-	DB_DATABASE=laravelapidb
-	DB_USERNAME=root
-	DB_PASSWORD=
+Activamos apache y mysql en Xampp y procedemos a crear una base de datos a la cual llamaremos laravelapidb.
+Procedemos a dejar la siguiente información (líneas 23 a 28):
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravelapidb
+DB_USERNAME=root
+DB_PASSWORD=
 
 -	Crear tablas para la base de datos:
 I.	Entidad propiedad: php artisan make:migration create_propiedad_table.
